@@ -1,6 +1,6 @@
-# AngularJS Multi-Project Workspace
+# AngularJS 1.8.3 Example Projects
 
-This workspace contains three separate AngularJS 1.8 projects, each with different backend and frontend structures and Docker-based development and production setups.
+This repo contains three AngularJS 1.8 projects, each with different way to maintain angular.js projects and Docker-based development and production setups.
 
 ---
 
