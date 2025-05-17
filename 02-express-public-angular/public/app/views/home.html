@@ -1,0 +1,7 @@
+<h2>Products</h2>
+<ul>
+  <li ng-repeat="p in products">
+    <a href="/product/{{p.id}}">{{p.name}} - ${{p.price}}</a>
+  </li>
+</ul>
+<a href="/cart">Go to Cart</a>

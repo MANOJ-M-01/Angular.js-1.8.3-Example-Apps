@@ -1,0 +1,18 @@
+doctype html
+html(ng-app="ecommerceApp")
+  head
+    title 03 Angular gulp Jade
+    link(rel="stylesheet", href="assets/css/style.css")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular-route.min.js")
+    script(src="app/app.module.js")
+    script(src="app/app.routes.js")
+    script(src="app/services/auth.service.js")
+    script(src="app/services/product.service.js")
+    script(src="app/controllers/login.controller.js")
+    script(src="app/controllers/home.controller.js")
+    script(src="app/controllers/product.controller.js")
+    script(src="app/controllers/cart.controller.js")
+    base(href="/")
+  body
+    div(ng-view)

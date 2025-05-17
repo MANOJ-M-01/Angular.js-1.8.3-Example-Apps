@@ -1,0 +1,6 @@
+h2 Products
+ul
+  li(ng-repeat="p in products")
+    a(href="/product/{{p.id}}") {{p.name}} - ${{p.price}}
+br
+a(href="/cart") Go to Cart

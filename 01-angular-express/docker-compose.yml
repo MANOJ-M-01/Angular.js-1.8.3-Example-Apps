@@ -1,0 +1,16 @@
+services:
+  backend:
+    build: .
+    ports:
+      - "4001:4001"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "4000:80"
+    volumes:
+      - ./frontend/index.html:/usr/local/apache2/htdocs/index.html
+      - ./frontend/app:/usr/local/apache2/htdocs/app
+      - ./frontend/assets:/usr/local/apache2/htdocs/assets

@@ -1,0 +1,12 @@
+{
+  "name": "01-angular-express-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "serve . -l 4000",
+    "start": "lite-server"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "serve": "^14.2.4"
+  }
+}
