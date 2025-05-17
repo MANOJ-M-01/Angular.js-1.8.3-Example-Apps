@@ -1,6 +1,6 @@
 # AngularJS 1.8.3 Example Projects
 
-This repo contains three AngularJS 1.8 projects, each with different way to maintain angular.js projects and Docker-based development and production setups.
+This repository contains three AngularJS 1.8.3 projects, each demonstrating a different approach to managing AngularJS applications, along with Docker-based setups for both development and production environments.
 
 ---
 
