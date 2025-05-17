@@ -1,31 +1,29 @@
 angular.module("ecommerceApp").factory("CartService", function () {
-  const CART_KEY = "user_cart";
-
-  function loadCart() {
-    return JSON.parse(localStorage.getItem(CART_KEY)) || [];
-  }
-
-  function saveCart(cart) {
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
-  }
-
-  let cart = loadCart();
+  const cart = [];
 
   return {
-    getItems() {
+    addToCart: function (product) {
+      const existing = cart.find((p) => p.id === product.id);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+    },
+    getCart: function () {
       return cart;
     },
-    addItem(item) {
-      cart.push(item);
-      saveCart(cart);
+    removeFromCart: function (productId) {
+      const index = cart.findIndex((p) => p.id === productId);
+      if (index !== -1) {
+        cart.splice(index, 1);
+      }
     },
-    removeItem(id) {
-      cart = cart.filter((i) => i.id !== id);
-      saveCart(cart);
+    clearCart: function () {
+      cart.length = 0;
     },
-    clear() {
-      cart = [];
-      saveCart(cart);
+    getTotal: function () {
+      return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
     },
   };
 });

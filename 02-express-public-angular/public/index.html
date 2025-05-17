@@ -10,13 +10,25 @@
     <script src="/app/app.routes.js"></script>
     <script src="/app/services/auth.service.js"></script>
     <script src="/app/services/product.service.js"></script>
+    <script src="/app/services/cart.service.js"></script>
     <script src="/app/controllers/login.controller.js"></script>
+    <script src="/app/controllers/nav.controller.js"></script>
     <script src="/app/controllers/home.controller.js"></script>
     <script src="/app/controllers/product.controller.js"></script>
     <script src="/app/controllers/cart.controller.js"></script>
     <base href="/" />
   </head>
   <body>
+    <nav ng-show="showNav" ng-controller="NavController">
+      <div>
+        <a href="/home">Home</a>
+        <a href="/cart">Cart</a>
+      </div>
+      <div>
+        <a href="/login" ng-show="!isLoggedIn()">Login</a>
+        <a href="" ng-show="isLoggedIn()" ng-click="logout()">Logout</a>
+      </div>
+    </nav>
     <div ng-view></div>
   </body>
 </html>

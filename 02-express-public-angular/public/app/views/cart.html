@@ -1,2 +1,21 @@
-<h2>Your Cart</h2>
-<p>Cart functionality coming soon.</p>
+<div class="cart-page">
+  <h2>Your Cart</h2>
+
+  <div ng-if="cart.length === 0">
+    <p>Your cart is empty.</p>
+  </div>
+
+  <ul>
+    <li ng-repeat="item in cart">
+      <strong>{{ item.name }}</strong> - ${{ item.price }} × {{ item.quantity }}
+      <button ng-click="removeFromCart(item.id)">Remove</button>
+    </li>
+  </ul>
+
+  <div ng-if="cart.length > 0">
+    <p><strong>Total:</strong> ${{ getTotal() }}</p>
+    <button ng-click="clearCart()">Clear Cart</button>
+  </div>
+
+  <a href="/home">Back to Products</a>
+</div>

@@ -1,20 +1,31 @@
-angular.module("ecommerceApp").factory("AuthService", function ($location) {
-  let isLoggedIn = false;
-  return {
-    login(username, password) {
-      if (username === "user" && password === "pass") {
-        isLoggedIn = true;
-        $location.path("/home");
-      } else {
-        alert("Invalid credentials");
-      }
-    },
-    isAuthenticated() {
-      return isLoggedIn;
-    },
-    logout() {
-      isLoggedIn = false;
-      $location.path("/login");
-    },
-  };
-});
+angular.module("ecommerceApp").factory("AuthService", function ($http, $window) {
+    const service = {};
+
+    service.login = function (username, password) {
+      return $http
+        .post("/api/login", { username, password })
+        .then(function (response) {
+          if (response.data.token) {
+            $window.localStorage.setItem("jwtToken", response.data.token);
+            return { success: true };
+          }
+        })
+        .catch(function (err) {
+          return { success: false, message: err.data.message };
+        });
+    };
+
+    service.logout = function () {
+      $window.localStorage.removeItem("jwtToken");
+    };
+
+    service.isLoggedIn = function () {
+      return !!$window.localStorage.getItem("jwtToken");
+    };
+
+    service.getToken = function () {
+      return $window.localStorage.getItem("jwtToken");
+    };
+
+    return service;
+  });

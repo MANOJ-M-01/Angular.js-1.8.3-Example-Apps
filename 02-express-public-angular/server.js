@@ -1,8 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+const jwt = require("jsonwebtoken");
+
 const app = express();
 const PORT = 4000;
+const SECRET_KEY = "supersecretkey";
 
 app.use(cors());
 app.use(express.json());
@@ -16,21 +19,39 @@ const products = [
   { id: 3, name: "Watch", price: 100, description: "A smartwatch" },
 ];
 
-// API routes
+// POST /api/login
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
+
+  // Replace with real user DB check
   if (username === "user" && password === "pass") {
-    res.json({ success: true, token: "dummy-token" });
+    const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' });
+    res.json({ success: true, token });
   } else {
     res.status(401).json({ success: false, message: "Invalid credentials" });
   }
 });
 
-app.get("/api/products", (req, res) => {
+// Middleware to protect routes
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1]; // Expect "Bearer <token>"
+
+  if (!token) return res.sendStatus(401);
+
+  jwt.verify(token, SECRET_KEY, (err, user) => {
+    if (err) return res.sendStatus(403); // Invalid token
+    req.user = user;
+    next();
+  });
+}
+
+// Protected routes
+app.get("/api/products", authenticateToken, (req, res) => {
   res.json(products);
 });
 
-app.get("/api/products/:id", (req, res) => {
+app.get("/api/products/:id", authenticateToken, (req, res) => {
   const product = products.find((p) => p.id === parseInt(req.params.id));
   res.json(product);
 });
@@ -39,9 +60,6 @@ app.get("/api/products/:id", (req, res) => {
 app.get(/(.*)/, (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
-// app.get("/:req", (req, res) => {
-//   res.sendFile(path.join(__dirname, "public", "index.html"));
-// });
 
 app.listen(PORT, () => {
   console.log(`App running on http://localhost:${PORT}`);

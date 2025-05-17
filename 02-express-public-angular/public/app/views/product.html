@@ -1,4 +1,9 @@
-<h2>{{product.name}}</h2>
-<p>{{product.description}}</p>
-<p>Price: ${{product.price}}</p>
-<button>Add to Cart</button>
+<div class="product-details">
+  <a href="/home">Products</a>
+  <h2>{{ product.name }}</h2>
+  <p>{{ product.description }}</p>
+  <p><strong>Price:</strong> ${{ product.price }}</p>
+  <button ng-click="addToCart()">Add to Cart</button>
+  <br />
+  <a href="/cart">Go to Cart</a>
+</div>
