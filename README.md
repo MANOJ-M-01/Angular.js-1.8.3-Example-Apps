@@ -21,7 +21,3 @@ Each project contains its own Docker and Docker Compose configurations for devel
 - Navigate to the respective project folder.
 - Run `docker-compose up --build` for development.
 - Run production with `docker-compose -f docker-compose.prod.yml up --build` (if applicable).
-
-
-## Notes
-`/products/1` not working when refreshing
