@@ -6,11 +6,11 @@ This workspace contains three separate AngularJS 1.8 projects, each with differe
 
 ## Projects Overview
 
-| #  | Project Folder              | Description                                                    |
-| ---|------------------------- ---|----------------------------------------------------------------|
-| 01 | `01-angular-express`        | AngularJS 1.8 frontend with Express.js backend API             |
-| 02 | `02-express-public-angular` | Express.js backend serving AngularJS frontend as static files  |
-| 03 | `03-angular-gulp`           | AngularJS 1.8 app using Jade templates and Gulp build system   |
+| #   | Project Folder              | Description                                                   |
+| --- | --------------------------- | ------------------------------------------------------------- |
+| 01  | `01-angular-express`        | AngularJS 1.8 frontend with Express.js backend API            |
+| 02  | `02-express-public-angular` | Express.js backend serving AngularJS frontend as static files |
+| 03  | `03-angular-gulp`           | AngularJS 1.8 app using Jade templates and Gulp build system  |
 
 ---
 
