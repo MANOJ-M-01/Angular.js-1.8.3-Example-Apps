@@ -1,0 +1,9 @@
+{
+  "name": "monorepo-nx",
+  "version": "1.0.0",
+  "projects": {
+    "frontend": "apps/frontend",
+    "backend": "apps/backend",
+    "shared": "libs/shared"
+  }
+}

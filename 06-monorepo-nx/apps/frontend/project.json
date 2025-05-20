@@ -1,0 +1,22 @@
+{
+  "name": "frontend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/frontend",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx http-server . -p 4200",
+        "cwd": "apps/frontend"
+      }
+    },
+    "build": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "outputPath": "dist/apps/frontend",
+        "main": "apps/frontend/app.module.js"
+      }
+    }
+  }
+}

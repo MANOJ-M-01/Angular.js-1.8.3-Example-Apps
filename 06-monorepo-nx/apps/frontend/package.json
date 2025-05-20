@@ -1,0 +1,12 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "AngularJS 1.8.3 frontend for Nx monorepo",
+  "scripts": {
+    "start": "npx http-server . -p 4200"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {}
+}
