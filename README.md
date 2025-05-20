@@ -36,7 +36,7 @@ This repository demonstrates multiple modern ways to structure and deploy Angula
 
 ### 4. Microservices (Docker Compose)
 
-- **Folder:** `microservices-docker`
+- **Folder:** `04-microservices-docker`
 - **Pattern:** AngularJS frontend and multiple backend microservices (users, products, orders), each in its own container. APIs are consumed independently by the frontend.
 
 ### 5. Monorepo (NPM Workspace + Docker Compose)
