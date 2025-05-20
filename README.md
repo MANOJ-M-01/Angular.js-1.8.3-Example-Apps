@@ -6,14 +6,14 @@ This repository demonstrates multiple modern ways to structure and deploy Angula
 
 ## Project Overview
 
-| #   | Folder                        | Method/Pattern                 | Description                                                     |
-| --- | ----------------------------- | ------------------------------ | --------------------------------------------------------------- |
-| 01  | `01-angular-express`          | Classic Fullstack (Docker)     | AngularJS frontend + Express.js backend, separate containers    |
-| 02  | `02-express-public-angular`   | Static Serve (Docker)          | Express.js serves AngularJS static files in a single container  |
-| 03  | `03-angular-gulp-jade`        | Gulp/Jade Build (Docker/Nginx) | Gulp builds AngularJS+Jade, served by Nginx in production       |
-| 04  | `microservices-docker`        | Microservices (Docker)         | AngularJS frontend + multiple Express.js microservices          |
-| 05  | `monorepo-nx`                 | Monorepo (Nx + Docker)         | Nx-managed monorepo: AngularJS frontend & Express backend       |
-| 06  | `serverless-static-s3-lambda` | Serverless & Static Hosting    | AngularJS static frontend (S3/Netlify) + serverless API backend |
+| #   | Folder                      | Method/Pattern                    | Description                                                          |
+| --- | --------------------------- | --------------------------------- | -------------------------------------------------------------------- |
+| 01  | `01-angular-express`        | Classic Fullstack (Docker)        | AngularJS frontend + Express.js backend, separate containers         |
+| 02  | `02-express-public-angular` | Static Serve (Docker)             | Express.js serves AngularJS static files in a single container       |
+| 03  | `03-angular-gulp-jade`      | Gulp/Jade Build (Docker/Nginx)    | Gulp builds AngularJS+Jade, served by Nginx in production            |
+| 04  | `microservices-docker`      | Microservices (Docker)            | AngularJS frontend + multiple Express.js microservices               |
+| 05  | `05-monorepo-npm-workspace` | Monorepo (npm workspace + Docker) | npm workspace managed monorepo: AngularJS frontend & Express backend |
+| 06  | `06-monorepo-nx`            | Monorepo (Nx + Docker)            | Nx-managed monorepo: AngularJS frontend & Express backend            |
 
 ---
 
@@ -39,15 +39,15 @@ This repository demonstrates multiple modern ways to structure and deploy Angula
 - **Folder:** `microservices-docker`
 - **Pattern:** AngularJS frontend and multiple backend microservices (users, products, orders), each in its own container. APIs are consumed independently by the frontend.
 
-### 5. Monorepo (Nx + Docker Compose)
+### 5. Monorepo (NPM Workspace + Docker Compose)
 
-- **Folder:** `monorepo-nx`
+- **Folder:** `05-monorepo-npm-workspace`
+- **Pattern:** npm workspace manages both frontend and backend apps, with shared libraries. Docker Compose for orchestration.
+
+### 6. Monorepo (Nx + Docker Compose)
+
+- **Folder:** `06-monorepo-nx`
 - **Pattern:** Nx monorepo manages both frontend and backend apps, with shared libraries. Unified scripts and dependency graph. Docker Compose for orchestration.
-
-### 6. Serverless & Static Hosting
-
-- **Folder:** `serverless-static-s3-lambda`
-- **Pattern:** AngularJS frontend is built and deployed as static files (S3, Netlify, Vercel). Backend APIs are serverless functions (AWS Lambda, Azure Functions, etc.).
 
 ---
 
@@ -67,10 +67,5 @@ Each project folder contains its own README and Docker (or deployment) configura
 - **Gulp/Jade Build:** When you want a build pipeline and template pre-processing.
 - **Microservices:** For scalable, independently deployable backend services.
 - **Monorepo:** For large teams, code sharing, unified tooling.
-- **Serverless/Static:** For zero server management, auto-scaling, and pay-per-use.
 
 ---
-
-## License
-
-MIT
